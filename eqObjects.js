@@ -87,3 +87,5 @@ const obj1 = {
 
 
   assertEqual(eqObjects(obj1, obj2), false);
+
+  module.exports = eqObjects;
