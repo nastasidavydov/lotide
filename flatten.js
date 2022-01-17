@@ -34,8 +34,11 @@ const flatten = arr => {
       flattenedArr.push(elem);
     }
   } 
-  return flattenedArr
+  return flattenedArr;
 };
 
 assertArraysEqual(flatten([1, 2, [3, 4], 5, [6]]), [1, 2, 3, 4, 5, 6]);
+
+module.exports = flatten;
+
 
