@@ -1,12 +1,4 @@
-const assertEqual = function(actual, expected) {
-  let passed =  '✅✅✅';
-  let failed = '❗❗❗';
-  if (actual === expected) {
-    console.log(`${passed} Assertion Passed: ${actual} === ${expected}`);
-  } else {
-    console.log(`${failed} Assertion Failed: ${actual} !== ${expected}`);
-  }
-};
+const assertEqual = require('./assertEqual');
 
 const eqArrays = (arr1, arr2) => {
 
@@ -32,13 +24,13 @@ const eqObjects = function(object1, object2) {
   }
 
   for (let key of objectKeys1) {
-    if(!object2[key]) { // if one has another dont - false
+    if (!object2[key]) { // if one has another dont - false
       return false;
     }
 
     if ((typeof object1[key] === 'object') && !(Array.isArray(object1[key]) && Array.isArray(object2[key]))) {
 
-      if (!eqObjects(object1[key], object2[key])) { 
+      if (!eqObjects(object1[key], object2[key])) {
         return false;
       }
 
@@ -56,10 +48,10 @@ const eqObjects = function(object1, object2) {
 
 const ab = { a: "1", b: "2" };
 const ba = { b: "2", a: "1" };
-assertEqual(eqObjects(ab, ba), true)
+assertEqual(eqObjects(ab, ba), true);
 
 const abc = { a: "1", b: "2", c: "3" };
-assertEqual(eqObjects(ab, abc), false)
+assertEqual(eqObjects(ab, abc), false);
 
 const cd = { c: "1", d: ["2", 3] };
 const dc = { d: ["2", 3], c: "1" };
@@ -68,30 +60,30 @@ assertEqual(eqObjects(cd, dc), true);
 const cd2 = { c: "1", d: ["2", 3, 4] };
 assertEqual(eqObjects(cd, cd2), false);
 
-assertEqual(eqObjects({ a: { z: 1 }, b: 2 }, { a: { z: 1 }, b: 2 }), true) 
+assertEqual(eqObjects({ a: { z: 1 }, b: 2 }, { a: { z: 1 }, b: 2 }), true);
 
-assertEqual(eqObjects({ a: { y: 0, z: 1 }, b: 2 }, { a: { z: 1 }, b: 2 }), false) 
-assertEqual(eqObjects({ a: { y: 0, z: 1 }, b: 2 }, { a: 1, b: 2 }), false) 
+assertEqual(eqObjects({ a: { y: 0, z: 1 }, b: 2 }, { a: { z: 1 }, b: 2 }),false);
+assertEqual(eqObjects({ a: { y: 0, z: 1 }, b: 2 }, { a: 1, b: 2 }), false);
 
 const obj1 = { 
   a: { 
-    y: 0, 
+    y: 0,
     z: {
       c: {
         d : [1, 2, 3]
       }
-    } }, 
-  b: 2 }
+    } },
+  b: 2 };
 
-  const obj2 = { 
-    a: { 
-      y: 0, 
+  const obj2 = {
+    a: {
+      y: 0,
       z: {
         d: {
           c : [1, 2, 3]
         }
-      } }, 
-    b: 2 }
+      } },
+    b: 2 };
 
 
-  assertEqual(eqObjects(obj1, obj2), false) 
+  assertEqual(eqObjects(obj1, obj2), false);
