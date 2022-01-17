@@ -23,7 +23,7 @@ const assertArraysEqual = function(actual, expected) {
 };
 
 
-const letterPositions = function(sentence) {
+const letterPosition = function(sentence) {
   const results = {};
   let letters = sentence.split("");
   for (let i = 0; i < letters.length; i++){
@@ -40,8 +40,10 @@ const letterPositions = function(sentence) {
   return results;
 };
 
-let outputLetters1 = letterPositions("lighthouse in the house");
-let outputLetters2 = letterPositions("hello");
+let outputLetters1 = letterPosition("lighthouse in the house");
+let outputLetters2 = letterPosition("hello");
 
 assertArraysEqual(outputLetters1['e'], [9, 16, 22]);
 assertArraysEqual(outputLetters2['l'], [2, 3]);
+
+module.exports = letterPosition;
