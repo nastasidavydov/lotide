@@ -5,9 +5,9 @@ describe('#tail', () => {
 
   it('returns 2 for ["Hello", "Lighthouse", "Labs"]', () => {
     let inputArr = ["Hello", "Lighthouse", "Labs"];
-    let expectedResult = tail(inputArr);
+    let result = tail(inputArr);
 
-    assert.strictEqual(expectedResult.length, 2);
+    assert.strictEqual(result.length, 2);
   });
 
 });
